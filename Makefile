@@ -63,22 +63,6 @@ wayback-machine: web-pages web-page-hashing deployment
 	# system requires a large number of users to get any reasonable
 	# corroboration.
 
-other-apps: sql filesystem strong-consistency porting-effort deployment
-	# There are a large number of popular, open source applications
-	# that are more practical to port than rewrite from scratch.
-	# 
-	# - Reddit (already being ported to cassandra?)
-	# - git? (already decentralized but maybe a good proof of concept)
-	# - wikis?
-	# - etherpad?
-	# - todo list?
-	# - anything you sync between your laptop and your phone
-	# - danbo...?
-	# [TODO] server-side logic... various languages
-	# [TODO] forums: reddit/etc?
-	# gitlab, mailing lists...? messenger apps?
-	# [TODO] we should list other requirements... low latency? push notifications?
-
 facebook: decentralize
 	# Unresolved circular dependency
 
@@ -148,6 +132,41 @@ porting-effort:
 	# mobile apps were doing for like five years. That's the level
 	# of adoption we need to aim for (so that it's okay if we
 	# fall a little bit short).
+
+###
+
+other-apps: forums wikis todo-lists etherpad git
+	# There are a large number of popular, open source applications
+	# that are more practical to port than rewrite from scratch.
+	# These might be easier initial targets than the really ambitious
+	# goals like Facebook or Twitter. The idea is to start small,
+	# prove the technologies, and build steam.
+	# 
+	# [TODO] server-side logic... various languages
+	# [TODO] forums: reddit/etc?
+	# gitlab, mailing lists...? messenger apps?
+	# [TODO] we should list other requirements... low latency? push notifications?
+
+forums: reddit
+
+reddit: eventual-consistency
+	# [TODO]
+
+wikis:
+todo-lists:
+
+etherpad:
+
+# [TODO] a single git repo actually requires strong-consistency?
+git: eventual-consistency
+	# https://git-scm.com
+	# [TODO]
+	# Supports eventual consistency (git merge) and strong consistency
+	# (git rebase). Manually pushing, pulling, merging and rebasing
+	# naturally has high latency. In strong consistency mode with
+	# rebase, Git becomes centralized because one or more repositories
+	# need to be un-rebase-able in order to know that writes are
+	# committed.
 
 ###
 
@@ -274,16 +293,6 @@ hash-archive:
 	# and track URLs over time. There are plans to import other
 	# databases of hashes and add support for BitTorrent and IPFS
 	# hashes. Also includes a list of "critical" URLs for monitoring.
-
-# [TODO] remove? or describe its place in the above...
-git:
-	# https://git-scm.com
-	# Supports eventual consistency (git merge) and strong consistency
-	# (git rebase). Manually pushing, pulling, merging and rebasing
-	# naturally has high latency. In strong consistency mode with
-	# rebase, Git becomes centralized because one or more repositories
-	# need to be un-rebase-able in order to know that writes are
-	# committed.
 
 ###
 
