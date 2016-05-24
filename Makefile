@@ -112,16 +112,18 @@ github: other-apps
 	# effects first, before trying something this ambitious.
 
 zeronet: web-apps web-page-sandboxing deployment
-	# http://zeronet.org [TODO]
+	# https://zeronet.io
 	# ZeroNet is best described as a framework, runtime and hosting
 	# platform for building decentralized web apps. It has several
-	# of its own apps including ZeroBlog and Zero[TODO] which look
+	# of its own apps including ZeroBlog and ZeroTalk which look
 	# very slick and are usable today.
 	#
 	# However, porting most existing apps to ZeroNet seems pretty
 	# much impossible, and because ZeroNet has a large runtime
-	# component, there are sandboxing issues.[TODO] There are also
+	# component, there are sandboxing issues.[1] There are also
 	# deployment questions, since it relies on a local Python server.
+	# 
+	# [1] https://github.com/HelloZeroNet/ZeroNet/issues/157
 
 porting-effort:
 	# Porting large, often "legacy" software projects isn't sexy.
