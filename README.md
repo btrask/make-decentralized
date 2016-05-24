@@ -1,5 +1,5 @@
-make decentralized
-==================
+make decentralize
+=================
 
 Like every Makefile, [this document](Makefile) forms a dependency graph. Unlike an ordinary Makefile, there are two ways to process this one.
 
