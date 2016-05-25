@@ -18,6 +18,8 @@ If you don't remember Makefile syntax:
 
 The instructions herein may not be machine-readable. :)
 
+For a high level overview of what the Decentralized Web is, why we need it, and how some of the technologies work, check out the [Decentralized Web Primer](https://swadeshi.github.io/decentralized-web-primer/).
+
 Build instructions:
 -------------------
 
