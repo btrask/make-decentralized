@@ -34,6 +34,7 @@ web: web-apps web-pages web-browsers zeronet dns public-key-infrastructure deplo
 ###
 
 web-apps: wordpress wayback-machine facebook twitter google github other-apps
+	# [TODO] Why focus on existing apps, rather than make new ones?
 
 wordpress: porting-effort deployment mysql web-pages
 	# https://wordpress.org [TODO] [use open source link?]
