@@ -532,9 +532,13 @@ other-goals: mesh-networks anonymity email
 
 mesh-networks:
 	# In my opinion, we cannot even seriously consider mesh networks
-	# until the sneakernet makes a comeback. It's possible that
-	# this will happen if the certificate authority model continues
-	# to break down, and the web of trust finally becomes viable.
+	# until the sneakernet makes a comeback. By that I mean that mesh
+	# networks should perhaps be thought of as an advanced form of
+	# offline communications, rather than as a second Internet (at
+	# least to start with). It's possible that this will become viable
+	# if the certificate authority model continues to break down, and
+	# the web of trust finally reaches critical mass.
+	# 
 	# Frankly, I'm not holding my breath.
 
 anonymity:
