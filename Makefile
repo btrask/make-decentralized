@@ -85,12 +85,6 @@ wayback-machine: web-pages web-page-hashing deployment
 	# system requires a large number of users to get any reasonable
 	# corroboration.
 
-facebook: decentralize
-	# Unresolved circular dependency
-
-twitter: decentralize
-	# Unresolved circular dependency
-
 google: web-pages
 	# In order to index data, you need to access it. That means that
 	# storing data and providing a search engine are intrinsically
@@ -156,6 +150,17 @@ porting-effort:
 	# mobile apps were doing for like five years. That's the level
 	# of adoption we need to aim for (so that it's okay if we
 	# fall a little bit short).
+
+###
+
+# These goals are too ambitious to be worth thinking about for the
+# time being.
+
+facebook: decentralize
+	# Unresolved circular dependency
+
+twitter: decentralize
+	# Unresolved circular dependency
 
 ###
 
