@@ -1,7 +1,7 @@
 # make decentralize
 # Ben Trask <https://bentrask.com>
 # May 2016
-# CC0
+# License: CC0
 # 
 # Like every Makefile, this document forms a dependency graph. Unlike an
 # ordinary Makefile, there are two ways to process this one:
