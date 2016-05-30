@@ -23,9 +23,13 @@
 # If you're interested in contributing to this document, pull requests
 # are welcome: https://github.com/btrask/make-decentralize
 # 
-# For a high level overview of what the Decentralized Web is, why we need it,
-# and how some of the technologies work, check out the Decentralized Web Primer
-# <https://swadeshi.github.io/decentralized-web-primer/>.
+# Other documents:
+# 
+# - [TODO] locking the web open...
+# - [TODO] nonviolence
+# - For a high level overview of what the Decentralized Web is, why we need
+#   it, and how some of the technologies work, check out the Decentralized
+#   Web Primer <https://swadeshi.github.io/decentralized-web-primer/>.
 
 decentralize: web other-goals
 
