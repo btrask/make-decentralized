@@ -31,6 +31,8 @@
 #   it, and how some of the technologies work, check out the Decentralized
 #   Web Primer <https://swadeshi.github.io/decentralized-web-primer/>.
 
+###
+
 decentralize: web other-goals
 
 web: web-apps web-pages web-browsers zeronet dns \
@@ -184,7 +186,7 @@ github: other-apps
 # This section is just a brief overview. There are far too many apps to
 # cover. Pull requests welcome: https://github.com/btrask/make-decentralize
 
-other-apps: chat forums git wikis todo-lists mailing-lists etherpad
+other-apps: chat voip forums git wikis todo-lists mailing-lists etherpad
 	# There are a large number of popular, open source applications
 	# that are more practical to port than rewrite from scratch.
 	# These should be easier initial targets than the really ambitious
@@ -193,7 +195,7 @@ other-apps: chat forums git wikis todo-lists mailing-lists etherpad
 
 chat: slack low-latency
 
-slack: eventual-consistency
+slack: eventual-consistency low-latency
 	# https://slack.com
 	# Yes, it's ironic that the Decentralized Web Summit is being
 	# organized over Slack.
@@ -203,6 +205,11 @@ slack: eventual-consistency
 	# of these systems only rely on weak consistency, which means they
 	# could eventually be unified with the decentralized content
 	# addressing systems.
+
+voip: eventual-consistency low-latency
+	# VOIP streams are typically P2P UDP, for latency and efficiency.
+	# The rest of the system could use a decentralized platform for
+	# discovering contacts and other things.
 
 forums: reddit sql
 
@@ -223,16 +230,17 @@ git: strong-consistency content-addressing
 	# 
 	# For decentralized Git hosting, see 'github'.
 
-wikis: strong-consistency mysql
-	# Of course we'd all like to decentralize Wikipedia and the
-	# other Wikimedia projects, but I think that's best done by the
-	# Wikimedia Foundation and community, once there is a viable
-	# platform for them to build on.
-	# 
+wikis: mediawiki strong-consistency
 	# The implementation of a wiki is very similar to Git, and in
 	# fact there are already wikis built on top of it[TODO]. One
 	# problem is that every wiki supports different features and
 	# syntax, so moving content between them is nearly impossible.
+
+mediawiki: mysql
+	# Of course we'd all like to decentralize Wikipedia and the
+	# other Wikimedia projects, but I think that's best done by the
+	# Wikimedia Foundation and community, once there is a viable
+	# platform for them to build on.
 
 todo-lists:
 mailing-lists: email
@@ -611,7 +619,6 @@ anonymity:
 email: spam-prevention
 	# Email was designed to be federated, [TODO]
 
-
 spam-prevention:
 	# In my opinion, the reason spam is so difficult to prevent is
 	# because the incentive to spam a network is the same incentive
@@ -626,7 +633,5 @@ spam-prevention:
 
 install: decentralize
 	echo "Thank you for reading! :)"
-	#rm -rf /
-
 
 
