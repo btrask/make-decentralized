@@ -515,13 +515,10 @@ ethereum:
 	# confirms transactions significantly faster than Bitcoin's
 	# (~3 minutes versus ~30 minutes).
 	# 
-	# Smart contracts can perhaps be thought of as a limited form of
-	# homomorphic encryption, making them primarily of use for
-	# financial applications such as a decentralized exchange[1]
-	# and TheDAO[2].
-	# 
-	# [1] https://etherex.org
-	# [2] [TODO]
+	# Smart contracts could be very useful for databases and apps
+	# built on top of Ethereum, to lessen the reliance on cryptography
+	# for controlling what untrusted users can do. (Think of smart
+	# contracts as a limited form of homomorphic encryption[TODO].)
 
 ###
 
