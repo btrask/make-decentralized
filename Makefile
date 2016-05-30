@@ -34,12 +34,12 @@ web: web-apps web-pages web-browsers zeronet dns \
 
 ###
 
-web-apps: wordpress wayback-machine facebook twitter google \
-          github other-apps deployment porting-effort
+web-apps: porting-effort wordpress wayback-machine facebook twitter \
+          google github other-apps
 	# In my opinion, we should focus on porting existing applications.
 	# [TODO]
 
-porting-effort: stack-overflow
+porting-effort: stack-overflow deployment
 	# Porting large, often "legacy" software projects isn't sexy.
 	# But think about this: if a decentralization platform were
 	# built well enough that porting existing apps en masse felt
@@ -48,6 +48,10 @@ porting-effort: stack-overflow
 	# mobile apps were doing for like five years. That's the level
 	# of adoption we need to aim for (so that it's okay if we
 	# fall a little bit short).
+	# 
+	# Almost all existing web apps have a sever-side component
+	# that must be taken into account. Deployment and ideally
+	# sandboxing are big issues.
 
 stack-overflow: sql filesystem
 	# If we want to move to a world where new and existing applications
@@ -173,19 +177,33 @@ github: other-apps
 
 ###
 
-other-apps: forums wikis todo-lists etherpad git
+# This section is just a brief overview. There are far too many apps to
+# cover. Pull requests welcome: https://github.com/btrask/make-decentralize
+
+other-apps: chat forums git wikis todo-lists mailing-lists etherpad
 	# There are a large number of popular, open source applications
 	# that are more practical to port than rewrite from scratch.
-	# These might be easier initial targets than the really ambitious
+	# These should be easier initial targets than the really ambitious
 	# goals like Facebook or Twitter. The idea is to start small,
 	# prove the technologies, and build steam.
 	# 
-	# [TODO] server-side logic... various languages
-	# [TODO] forums: reddit/etc?
 	# gitlab, mailing lists...? messenger apps?
 	# [TODO] we should list other requirements... low latency? push notifications?
 
-forums: reddit
+chat: slack
+
+slack: eventual-consistency
+	# https://slack.com
+	# Yes, it's ironic that the Decentralized Web Summit is being
+	# organized over Slack.
+	# 
+	# For a decentralized Slack, we already have Matrix and (ahem) IRC.
+	# They can even bridge to existing Slack channels. Pretty much all
+	# of these systems only rely on weak consistency, which means they
+	# could eventually be unified with the decentralized content
+	# addressing systems.
+
+forums: reddit sql
 
 reddit: eventual-consistency
 	# http:// [TODO]
@@ -195,21 +213,30 @@ reddit: eventual-consistency
 	# addressing systems, especially if a CQL compatibility layer
 	# were made.
 
-wikis:
-todo-lists:
-
-etherpad:
-
-# [TODO] a single git repo actually requires strong-consistency?
-git: eventual-consistency
+git: strong-consistency content-addressing
 	# https://git-scm.com
-	# [TODO]
-	# Supports eventual consistency (git merge) and strong consistency
-	# (git rebase). Manually pushing, pulling, merging and rebasing
-	# naturally has high latency. In strong consistency mode with
-	# rebase, Git becomes centralized because one or more repositories
-	# need to be un-rebase-able in order to know that writes are
-	# committed.
+	# For completeness, Git itself (or mainly the "porcelain") could
+	# be ported to a decentralized platform. Git is already
+	# decentralized, so the advantages of doing this are probably
+	# low (although it'd be a good demo!).
+	# 
+	# For decentralized Git hosting, see 'github'.
+
+wikis: strong-consistency mysql
+	# Of course we'd all like to decentralize Wikipedia and the
+	# other Wikimedia projects, but I think that's best done by the
+	# Wikimedia Foundation and community, once there is a viable
+	# platform for them to build on.
+	# 
+	# The implementation of a wiki is very similar to Git, and in
+	# fact there are already wikis built on top of it[TODO]. One
+	# problem is that every wiki supports different features and
+	# syntax, so moving content between them is nearly impossible.
+
+todo-lists:
+mailing-lists: email
+etherpad:
+# countless others...
 
 ###
 
