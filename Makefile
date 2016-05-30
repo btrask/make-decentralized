@@ -35,10 +35,51 @@ web: web-apps web-pages web-browsers zeronet dns \
 ###
 
 web-apps: wordpress wayback-machine facebook twitter google \
-          github other-apps deployment
-	# [TODO] Why focus on existing apps, rather than make new ones?
+          github other-apps deployment porting-effort
+	# In my opinion, we should focus on porting existing applications.
+	# [TODO]
 
-wordpress: porting-effort mysql web-pages
+porting-effort: stack-overflow
+	# Porting large, often "legacy" software projects isn't sexy.
+	# But think about this: if a decentralization platform were
+	# built well enough that porting existing apps en masse felt
+	# feasible and rewarding, there are a lot of programmers who
+	# might get excited about porting an app or two. Look at how
+	# mobile apps were doing for like five years. That's the level
+	# of adoption we need to aim for (so that it's okay if we
+	# fall a little bit short).
+
+stack-overflow: sql filesystem
+	# If we want to move to a world where new and existing applications
+	# are built "decentralized-first," we need to solve the Stack
+	# Overflow problem. When programmers turn to SO to find out how to
+	# query a database or copy and paste some snippet of code, we need
+	# all of the examples to show the decentralized way of doing things.
+	# For that to happen, there are basically two options:
+	#   1. Update all of the answers on Stack Overflow with new APIs
+	#      and protocols and make everyone relearn everything.
+	#   2. Build decentralized platforms that are bug-compatible with
+	#      existing software stacks.
+	# Obviously, neither of these options will be easy, but I believe
+	# that backward compatibility almost always wins.
+
+###
+
+# These goals are too ambitious to be worth thinking about for the
+# time being. We can tackle them once we do everything else.
+# 
+# Even if we never get around to Facebook and Twitter, our efforts will
+# still be worthwhile.
+
+facebook: decentralize
+	# Unresolved circular dependency
+
+twitter: decentralize
+	# Unresolved circular dependency
+
+###
+
+wordpress: mysql web-pages
 	# https://wordpress.org [TODO] [use open source link?]
 	# WordPress runs 25% of all websites.[TODO] If you want to talk about
 	# decentralizing the web, you need to talk about WordPress.
@@ -130,41 +171,6 @@ github: other-apps
 	# focus on popular open source applications with fewer network
 	# effects first, before trying something this ambitious.
 
-zeronet: web-apps web-page-sandboxing deployment
-	# https://zeronet.io
-	# ZeroNet is best described as a framework, runtime and hosting
-	# platform for building decentralized web apps. It has several
-	# of its own apps including ZeroBlog and ZeroTalk which look
-	# very slick and are usable today.
-	#
-	# However, porting most existing apps to ZeroNet seems pretty
-	# much impossible, and because ZeroNet has a large runtime
-	# component, there are sandboxing issues.[1] There are also
-	# deployment questions, since it relies on a local Python server.
-	# 
-	# [1] https://github.com/HelloZeroNet/ZeroNet/issues/157
-
-porting-effort:
-	# Porting large, often "legacy" software projects isn't sexy.
-	# But think about this: if a decentralization platform were
-	# built well enough that porting existing apps en masse felt
-	# feasible and rewarding, there are a lot of programmers who
-	# might get excited about porting an app or two. Look at how
-	# mobile apps were doing for like five years. That's the level
-	# of adoption we need to aim for (so that it's okay if we
-	# fall a little bit short).
-
-###
-
-# These goals are too ambitious to be worth thinking about for the
-# time being.
-
-facebook: decentralize
-	# Unresolved circular dependency
-
-twitter: decentralize
-	# Unresolved circular dependency
-
 ###
 
 other-apps: forums wikis todo-lists etherpad git
@@ -206,6 +212,20 @@ git: eventual-consistency
 	# committed.
 
 ###
+
+zeronet: web-apps web-page-sandboxing deployment
+	# https://zeronet.io
+	# ZeroNet is best described as a framework, runtime and hosting
+	# platform for building decentralized web apps. It has several
+	# of its own apps including ZeroBlog and ZeroTalk which look
+	# very slick and are usable today.
+	#
+	# However, porting most existing apps to ZeroNet seems pretty
+	# much impossible, and because ZeroNet has a large runtime
+	# component, there are sandboxing issues.[1] There are also
+	# deployment questions, since it relies on a local Python server.
+	# 
+	# [1] https://github.com/HelloZeroNet/ZeroNet/issues/157
 
 dns: namecoin strong-consistency web-pages
 	# Decentralizing DNS means "squaring Zooko's triangle."[TODO]
@@ -505,19 +525,6 @@ client-libraries: stack-overflow
 	# 
 	# These requirements preclude a lot of tools in the web developer
 	# comfort zone.
-
-stack-overflow: sql filesystem
-	# If we want to move to a world where new and existing applications
-	# are built "decentralized-first," we need to solve the Stack
-	# Overflow problem. When programmers turn to SO to find out how to
-	# query a database or copy and paste some snippet of code, we need
-	# all of the examples to show the decentralized way of doing things.
-	# For that to happen, there are basically two options:
-	#   1. Update all of the answers on Stack Overflow with a new way
-	#      of doing things and make everyone relearn everything.
-	#   2. Build decentralized platforms that are bug-compatible with
-	#      existing software stacks.
-	# Obviously, neither of these options will be easy.
 
 sandstorm:
 	# http:// [TODO]
