@@ -35,13 +35,14 @@
 
 decentralize: web other-goals
 
-web: web-apps web-pages web-browsers zeronet dns \
-     public-key-infrastructure deployment
+web: web-apps zeronet dns public-key-infrastructure \
+     web-pages web-browsers deployment
 
 ###
 
-web-apps: porting-effort wordpress wayback-machine facebook twitter \
-          google github other-apps
+web-apps: porting-effort facebook twitter \
+          wordpress wayback-machine google github \
+          other-apps
 	# In my opinion, we should focus on porting existing applications.
 	# [TODO]
 
