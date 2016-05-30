@@ -266,6 +266,9 @@ zeronet: web-apps web-page-sandboxing deployment
 	# [1] https://github.com/HelloZeroNet/ZeroNet/issues/157
 
 dns: namecoin strong-consistency web-pages
+	# To be clear, hierarchy and delegation are not the same as
+	# decentralization.
+	# 
 	# Decentralizing DNS means "squaring Zooko's triangle."[TODO]
 	# In other words it require strong consistency.
 	# A decentralized domain name system called Namecoin already
@@ -278,7 +281,7 @@ dns: namecoin strong-consistency web-pages
 namecoin:
 	# https:// [TODO]
 
-public-key-infrastructure: web-browsers
+public-key-infrastructure: web-browsers dns
 	# Web browsers have the most influence over the root certificates
 	# of anyone (including the user) and control HSTS[TODO]; therefore
 	# browsers themselves are the ultimate certificate authorities.
