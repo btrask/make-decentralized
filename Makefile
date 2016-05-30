@@ -29,14 +29,16 @@
 
 decentralize: web other-goals
 
-web: web-apps web-pages web-browsers zeronet dns public-key-infrastructure deployment
+web: web-apps web-pages web-browsers zeronet dns \
+     public-key-infrastructure deployment
 
 ###
 
-web-apps: wordpress wayback-machine facebook twitter google github other-apps
+web-apps: wordpress wayback-machine facebook twitter google \
+          github other-apps deployment
 	# [TODO] Why focus on existing apps, rather than make new ones?
 
-wordpress: porting-effort deployment mysql web-pages
+wordpress: porting-effort mysql web-pages
 	# https://wordpress.org [TODO] [use open source link?]
 	# WordPress runs 25% of all websites.[TODO] If you want to talk about
 	# decentralizing the web, you need to talk about WordPress.
@@ -60,7 +62,7 @@ wordpress: porting-effort deployment mysql web-pages
 	# perhaps we could get some support by starting with porting it
 	# to PostgreSQL, adding a proper database abstraction layer.
 
-wayback-machine: web-pages web-page-hashing deployment
+wayback-machine: web-pages web-page-hashing
 	# https://web.archive.org
 	# Along with WordPress, the Wayback Machine is a promising and
 	# high-value target for our initial decentralization efforts.
@@ -180,7 +182,12 @@ other-apps: forums wikis todo-lists etherpad git
 forums: reddit
 
 reddit: eventual-consistency
-	# [TODO]
+	# http:// [TODO]
+	# From what I understand, Reddit has already been ported to
+	# Cassandra, an eventually consistent database. That should make
+	# it much easier to port it to one of the decentralized content
+	# addressing systems, especially if a CQL compatibility layer
+	# were made.
 
 wikis:
 todo-lists:
