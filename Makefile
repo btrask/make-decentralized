@@ -140,6 +140,7 @@ wayback-machine: web-pages web-page-hashing
 	# corroboration.
 
 google: web-pages
+	# https://www.google.com
 	# In order to index data, you need to access it. That means that
 	# storing data and providing a search engine are intrinsically
 	# tied together. That means that if we can decentralize static
@@ -237,6 +238,7 @@ wikis: mediawiki strong-consistency
 	# syntax, so moving content between them is nearly impossible.
 
 mediawiki: mysql
+	# http [TODO]
 	# Of course we'd all like to decentralize Wikipedia and the
 	# other Wikimedia projects, but I think that's best done by the
 	# Wikimedia Foundation and community, once there is a viable
@@ -272,18 +274,20 @@ dns: namecoin strong-consistency web-pages
 	# it isn't very poplar. By itself it doesn't have any driving
 	# use cases, but in conjunction with a decentralized web
 	# platform it could provide a lot of value.
-	# 
-	# For what it's worth, it would be better to build naming
-	# on top of a secure transport (have domains point to public
-	# keys) rather than building security on top of naming
-	# (domain validation).
-	# [TODO] what, really? this is about pk vs ip, not dns
 
 namecoin:
 	# https:// [TODO]
 
 public-key-infrastructure: web-browsers
-	# [TODO] oh god
+	# Web browsers have the most influence over the root certificates
+	# of anyone (including the user) and control HSTS[TODO]; therefore
+	# browsers themselves are the ultimate certificate authorities.
+	# Domain validation could be rolled into the HSTS site overnight
+	# and the entire process would become vastly simpler and more
+	# secure (not to mention cheaper). Basically it's a mess.
+	# 
+	# Someday I think it would be nice to have domain names point to
+	# public keys rather than directly to IPs.[TODO]
 
 ###
 
