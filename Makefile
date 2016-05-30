@@ -305,8 +305,7 @@ web-page-hashing: content-addressing
 
 eventual-consistency: content-addressing
 
-# [TODO] named data networking?
-content-addressing: ipfs webtorrent stronglink hash-archive porting-effort
+content-addressing: ipfs webtorrent named-data stronglink hash-archive
 	# Content addressing is the foundation for a large number of
 	# eventually consistent document stores. While it's simple
 	# and powerful, porting existing apps to content addressing
@@ -352,6 +351,13 @@ webtorrent: client-libraries web-browsers
 	# WebTorrent by itself is still just a transport protocol. Building
 	# serverless apps directly on top of it requires a fair amount
 	# of additional work, at least some of what ZeroNet provides.
+
+named-data:
+	# http: [TODO]
+	# Named Data Networking is a network protocol that bakes
+	# content addressing into the network itself. This is obviously
+	# a problem for adoption, and it also casts ISPs as the primary
+	# resolvers, giving them more power.
 
 stronglink: web-apps native-apps dns
 	# https://github.com/btrask/stronglink
@@ -399,7 +405,7 @@ web-page-sandboxing: web-browsers suborigins
 	# ad-hoc, is important for security.
 
 suborigins: web-browsers
-	# http:// [TODO]
+	# https://w3c.github.io/webappsec-suborigins/
 	# Currently the same-origin policy ties the security permissions of
 	# web pages to the location they are hosted from. This requires
 	# tricks like alternate domain names for "untrusted content," and
@@ -425,7 +431,7 @@ web-browsers: browser-engines secure-sandbox
 	#
 	# Browser extensions have deployment problems and still aren't
 	# powerful enough.
-
+# [TODO]
 browser-engines:
 	# Browser engines have evolved into elaborate game engines.
 
