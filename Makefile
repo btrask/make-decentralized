@@ -190,11 +190,8 @@ other-apps: chat forums git wikis todo-lists mailing-lists etherpad
 	# These should be easier initial targets than the really ambitious
 	# goals like Facebook or Twitter. The idea is to start small,
 	# prove the technologies, and build steam.
-	# 
-	# gitlab, mailing lists...? messenger apps?
-	# [TODO] we should list other requirements... low latency? push notifications?
 
-chat: slack
+chat: slack low-latency
 
 slack: eventual-consistency
 	# https://slack.com
@@ -363,8 +360,8 @@ stronglink: web-apps native-apps dns
 	# https://github.com/btrask/stronglink
 	# Disclosure: created by yours truly
 	# StrongLink is a decentralized document store with powerful
-	# querying (including full-text search), real-time syncing,
-	# and pub-sub.
+	# querying (including full-text search), real-time (low-latency)
+	# syncing and pub-sub.
 	# 
 	# StrongLink places emphasis on the URIs (content addresses)
 	# themselves for interoperability, rather than focusing
@@ -387,6 +384,11 @@ hash-archive:
 	# and track URLs over time. There are plans to import other
 	# databases of hashes and add support for BitTorrent and IPFS
 	# hashes. Also includes a list of "critical" URLs for monitoring.
+
+low-latency:
+	# Some applications have a particular need for low-latency updates.
+	# Protocols with more latency are eventually replaced by protocols
+	# with less.
 
 ###
 
