@@ -640,6 +640,6 @@ spam-prevention:
 ###
 
 install: decentralize
-	echo "Thank you for reading! :)"
+	@ echo "Thank you for reading! :)"
 
 
