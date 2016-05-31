@@ -631,22 +631,22 @@ namecoin:
 ###
 
 deployment: web-browsers native-apps sandstorm browser-extensions
-	# The deployment (and polish) problem tends to be underrated
-	# or ignored when talking about decentralization. People like
-	# frying pans with grippy handles. Who's going to use your
-	# thing without a grippy handle? That's how high the bar is.
+	# The deployment (and polish) problem tends to be underrated or
+	# ignored when talking about decentralization. People like frying
+	# pans with grippy handles. Who's going to use your program
+	# without a grippy handle? That's how high the bar is.
 
-# TODO this term is bad?
-# why arent we talking about porting existing native apps to our platform?
-# alternative: client-software? (merged with client-libraries below)
 native-apps: client-libraries
-	# Any decentralization platform should have a way of making,
-	# running, and deploying native apps. At one end of the spectrum,
-	# this could just be a library that native apps embed
-	# to access the local repository and decentralized network.
-	# At the other end, it could be a whole framework capable of
-	# running WordPress decentralized with only minor modifications.
-	# Ideally both.
+	# A decentralization platform might have a graphical "management
+	# interface," but that should not be our focus. Ideally, these
+	# platforms should be mostly self-managing and transparent to
+	# end users. The focus should be on client libraries that allow
+	# existing (and new) apps to use your platform.
+	# 
+	# Of course, existing native apps can and should be ported, in
+	# the same way that web apps should be (cf. web-apps). On desktop
+	# platforms, it might be enough to present a standard filesystem
+	# (cf. filesystem) where native apps can store their data.
 
 client-libraries: stack-overflow
 	# Whatever form your decentralization platform takes, we'll need
