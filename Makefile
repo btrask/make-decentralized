@@ -25,11 +25,12 @@
 # 
 # Other documents:
 # 
-# - [TODO] locking the web open...
-# - [TODO] nonviolence
-# - For a high level overview of what the Decentralized Web is, why we need
-#   it, and how some of the technologies work, check out the Decentralized
-#   Web Primer <https://swadeshi.github.io/decentralized-web-primer/>.
+# - Locking the Web Open: A Call for a Distributed Web
+#   <http://brewster.kahle.org/2015/08/11/locking-the-web-open-a-call-for-a-distributed-web-2/>
+# - The internet has been stolen from you. Take it back, nonviolently.
+#   <https://medium.com/@flyingzumwalt/the-internet-has-been-stolen-from-you-take-it-back-nonviolently-248f8d445b87>
+# - Why Decentralized?
+#   <http://www.decentralizedweb.net/learn-more/>
 
 ###
 
@@ -110,8 +111,8 @@ twitter: decentralize
 ###
 
 wordpress: mysql web-pages
-	# https://wordpress.org [TODO] [use open source link?]
-	# WordPress runs 25% of all websites.[TODO] If you want to talk about
+	# https://make.wordpress.org/core/handbook/
+	# WordPress runs 25% of all websites.[1] If you want to talk about
 	# decentralizing the web, you need to talk about WordPress.
 	# 
 	# There are basically two approaches to decentralizing WordPress.
@@ -134,6 +135,8 @@ wordpress: mysql web-pages
 	# to PostgreSQL, adding a proper database abstraction layer.
 	# This is plausible because there is already pent-up demand for
 	# Postgres support. Plug-ins might be an issue.
+	# 
+	# [1] https://w3techs.com/blog/entry/wordpress-powers-25-percent-of-all-websites
 
 wayback-machine: web-pages web-page-hashing
 	# https://web.archive.org
@@ -179,9 +182,13 @@ google: web-pages
 	# entirely dependant on handouts.
 	# 
 	# Google has published some information on many of its distributed
-	# systems, including GFS, Spanner, and Chubby[TODO]. They can't be copied
-	# directly, due to differences between intranet and internet
-	# services, but they are still worth studying.
+	# systems, including GFS[1], Spanner[2], and Chubby[3]. They can't
+	# be copied directly, due to differences between intranet and
+	# internet services, but they are still worth studying.
+	# 
+	# [1] http://research.google.com/archive/gfs.html
+	# [2] http://research.google.com/archive/spanner.html
+	# [3] http://research.google.com/archive/chubby.html
 
 github: other-apps
 	# https://github.com
@@ -190,14 +197,18 @@ github: other-apps
 	# social network. This should be a lesson of caution to any eager
 	# would-be decentralizers.
 	# 
-	# Past attempts to decentralize GitHub, such as GitTorrent[TODO],
-	# have missed the mark. The social aspect seems to be what matters.
-	# GitLab[TODO] seems promising.
+	# Past attempts to decentralize GitHub, such as GitTorrent[1][2],
+	# seem have missed the mark. The social aspect seems to be what
+	# matters. GitLab[3] seems promising.
 	# 
 	# GitHub is a fairly advanced application, and the open source
 	# equivalents are relatively unproven. We should focus on popular
 	# open source applications with fewer network effects first,
 	# before trying something this ambitious.
+	# 
+	# [1] https://github.com/cjb/GitTorrent
+	# [2] https://github.com/cjb/GitTorrent/issues/75
+	# [3] https://about.gitlab.com/contributing/
 
 ###
 
@@ -232,7 +243,7 @@ voip: eventual-consistency low-latency
 forums: reddit sql
 
 reddit: eventual-consistency
-	# http:// [TODO]
+	# https://github.com/reddit/reddit
 	# From what I understand, Reddit has already been ported to
 	# Cassandra, an eventually consistent database. That should make
 	# it much easier to port it to one of the decentralized content
@@ -250,12 +261,14 @@ git: strong-consistency content-addressing
 
 wikis: mediawiki strong-consistency
 	# The implementation of a wiki is very similar to Git, and in
-	# fact there are already wikis built on top of it[TODO]. One
+	# fact there are already wikis built on top of it[1]. One
 	# problem is that every wiki supports different features and
 	# syntax, so moving content between them is nearly impossible.
+	# 
+	# [1] https://en.wikipedia.org/wiki/List_of_wiki_software
 
 mediawiki: mysql
-	# http [TODO]
+	# https://www.mediawiki.org/wiki/Special:MyLanguage/Developer_hub
 	# Of course we'd all like to decentralize Wikipedia and the
 	# other Wikimedia projects, but I think that's best done by the
 	# Wikimedia Foundation and community, once there is a viable
@@ -287,22 +300,9 @@ dns: zookos-triangle
 	# decentralization. DNS as it exists today is centralized,
 	# despite being distributed (they're not antonyms).
 
-zookos-triangle: strong-consistency namecoin
-	# http:// [TODO]
-	# Zooko's Triangle just means decentralized strong consistency,
-	# and that's what Bitcoin gave us.
-
-namecoin: web-pages deployment
-	# https:// [TODO]
-	# Namecoin is here today and is heavily used by ZeroNet. I don't
-	# know of any serious problems with it, aside from the fact that
-	# it isn't very poplar. By itself it doesn't have any driving
-	# use cases, but in conjunction with a decentralized web
-	# platform it could provide a lot of value.
-
 public-key-infrastructure: web-browsers dns
 	# Web browsers have the most influence over the root certificates
-	# of anyone (including the user) and control HSTS[TODO]; therefore
+	# of anyone (including the user) and control HSTS[1]; therefore
 	# browsers themselves are the ultimate certificate authorities.
 	# Domain validation could be rolled into the HSTS site overnight
 	# and the entire process would become vastly simpler and more
@@ -310,8 +310,11 @@ public-key-infrastructure: web-browsers dns
 	# 
 	# Someday I think it would be nice to have domain names point to
 	# public keys rather than directly to IPs.[TODO]
+	# 
+	# [1] https://hstspreload.appspot.com
 
 cloudflare: content-distribution-networks denial-of-service
+	# https://www.cloudflare.com
 
 content-distribution-networks: content-addressing
 
@@ -352,20 +355,23 @@ eventual-consistency: content-addressing
 
 content-addressing: ipfs webtorrent named-data stronglink hash-archive
 	# Content addressing is the foundation for a large number of
-	# eventually consistent document stores. While it's simple
-	# and powerful, porting existing apps to content addressing
-	# systems is hard because most apps expect stronger consistency
-	# guarantees. That said, content addressing itself doesn't
-	# preclude strong consistency, if paired with something that
-	# provides it (cf. strong-consistency).
+	# eventually consistent document stores. While it's simple and
+	# powerful, porting existing apps to content addressing systems is
+	# hard because most apps expect stronger consistency guarantees.
+	# That said, content addressing itself doesn't preclude strong
+	# consistency, if paired with something that provides it (cf.
+	# strong-consistency).
 	# 
 	# Content addressing is a general technique for solving the
 	# exactly-once message delivery problem in distributed systems.
-	# It's strictly superior to UUIDs in nearly all cases.[TODO] When using
-	# content addressing, you must be very careful what content is
-	# used, since that defines the item's identity. Several systems
+	# It's strictly superior to UUIDs in nearly all cases.[1] When
+	# using content addressing, you must be very careful what content
+	# is used, since that defines the item's identity. Several systems
 	# inject their own meta-data into their hashes, making them
-	# mutually incompatible, unfortunately.[TODO]
+	# mutually incompatible, unfortunately.[1]
+	# 
+	# [1] https://bentrask.com/?q=hash://sha256/59fd0cb6d129452290291a75
+	# [2] https://bentrask.com/?q=hash://sha256/f1da36906f842142b97e745d
 
 ipfs: web-apps filesystem web-browsers web-page-sandboxing deployment
 	# https://ipfs.io
@@ -378,9 +384,11 @@ ipfs: web-apps filesystem web-browsers web-page-sandboxing deployment
 	# In my opinion, the biggest challenges facing IPFS are apps and
 	# deployment (including usability by non-technical users). IPFS's
 	# file system interface is not standard enough to support running
-	# existing apps unmodified. It has several proof-of-concept apps.[TODO]
-	# It probably needs a thin(ner) client for mobile devices with limited
-	# battery life and bandwidth caps.
+	# existing apps unmodified. It has several proof-of-concept
+	# apps.[1] It probably needs a thin(ner) client for mobile devices
+	# with limited battery life and bandwidth caps.
+	# 
+	# [1] https://github.com/ipfs/apps/issues
 
 webtorrent: client-libraries web-browsers
 	# https://webtorrent.io
@@ -391,7 +399,7 @@ webtorrent: client-libraries web-browsers
 	# by far.
 	# 
 	# It's still missing DHT support, which seems to be challenging
-	# under current browser limitations.[TODO]
+	# under current browser limitations.[1]
 	# 
 	# WebTorrent by itself is still just a transport protocol. Building
 	# serverless apps directly on top of it requires a fair amount
@@ -399,9 +407,11 @@ webtorrent: client-libraries web-browsers
 	# Or it could be as easy as an automated system for sending
 	# magnet links over Matrix (or any other low-latency pub-sub
 	# protocol).
+	# 
+	# [1] https://github.com/feross/webtorrent/issues/288
 
 named-data:
-	# http: [TODO]
+	# http://named-data.net
 	# Named Data Networking is a network protocol that bakes
 	# content addressing into the network itself. This is obviously
 	# a problem for adoption, and it also casts ISPs as the primary
@@ -497,21 +507,19 @@ filesystem: strong-consistency content-addressing
 	# The appeal of a decentralized POSIX-compatible file system is
 	# that it would make porting applications to it extremely easy.
 	# 
-	# That said, distributed file systems are hard. Just ask NFS or
-	# AndrewFS[TODO]. Database-backed file systems are slow. Just ask
-	# WinFS.
-	# 
-	# A decentralized file system is going to be slow and very
-	# likely to subtly break applications that expect strict POSIX
-	# semantics (for example every application that uses SQLite[TODO]).
+	# That said, a decentralized file system is going to be slow and
+	# very likely to subtly break applications that expect strict POSIX
+	# semantics (for example every application that uses SQLite[1]).
 	# There are also problems with how you handle file locking,
 	# given CAP.
+	# 
+	# [1] https://www.sqlite.org/faq.html#q5
 
 mysql: sql
 
 sql: strong-consistency content-addressing
 	# SQL (and even most NoSQL databases) assume strong consistency.
-	# There have been attempts like CQL[TODO] to build query languages
+	# There have been attempts like CQL[1] to build query languages
 	# that support eventual consistency, but they aren't very widely
 	# used (cf. stack-overflow).
 	# 
@@ -524,12 +532,21 @@ sql: strong-consistency content-addressing
 	# can issue a "transaction program" in one shot. However that
 	# will lose the portability advantages of supporting SQL in the
 	# first place.
+	# 
+	# [1] https://cassandra.apache.org/doc/cql3/CQL.html
 
-strong-consistency: blockchain
+strong-consistency: zookos-triangle
 	# Eventually consistent databases are easy and make applications
 	# hard; strongly consistent databases are hard and make
 	# applications easy.
-	#
+	# 
+	# Decentralized strong consistency precisely means squaring Zooko's
+	# triangle. Zooko's triangle is relevant to far more than just
+	# naming things.
+
+zookos-triangle: blockchain
+	# https://web.archive.org/web/20011020191610/http://zooko.com/distnames.html
+	# [TODO]
 	# I was very cynical about blockchains for a long time, so please
 	# don't accuse me of simply buying into the hype. The reason I've
 	# come to believe that blockchains (really, the blockchain) is
@@ -549,7 +566,7 @@ strong-consistency: blockchain
 	# 
 	# [1] http://www.aaronsw.com/weblog/squarezooko
 
-blockchain: ethereum
+blockchain: ethereum namecoin
 	# The problem with using the blockchain as the basis for a strongly
 	# consistent, massively distributed database is that it's slow.
 	# Specifically, transactions only commit probabalistically, and
@@ -577,7 +594,17 @@ ethereum:
 	# Smart contracts could be very useful for databases and apps
 	# built on top of Ethereum, to lessen the reliance on cryptography
 	# for controlling what untrusted users can do. (Think of smart
-	# contracts as a limited form of homomorphic encryption[TODO].)
+	# contracts as a limited form of homomorphic encryption[1].)
+	# 
+	# [1] https://en.wikipedia.org/wiki/Homomorphic_encryption
+
+namecoin:
+	# https://www.namecoin.info/
+	# Namecoin is here today and is heavily used by ZeroNet. I don't
+	# know of any serious problems with it, aside from the fact that
+	# it isn't very poplar. By itself it doesn't have any driving
+	# use cases, but in conjunction with a decentralized web
+	# platform it could provide a lot of value.
 
 ###
 
@@ -614,7 +641,7 @@ client-libraries: stack-overflow
 	# comfort zone.
 
 sandstorm:
-	# http:// [TODO]
+	# https://sandstorm.io
 	# Typical users don't know how run servers, or want to.
 	# Docker isn't the solution, but Sandstorm might be. I still
 	# don't think it's a great solution compared with native clients,
