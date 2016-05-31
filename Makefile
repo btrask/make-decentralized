@@ -728,7 +728,7 @@ spam-prevention:
 
 ###
 
-install: decentralize
+install: decentralized
 	@ echo "Thank you for reading! :)"
 
 
