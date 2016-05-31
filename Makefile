@@ -299,8 +299,17 @@ dns: zookos-triangle
 	# To be clear, hierarchy and delegation are not the same as
 	# decentralization. DNS as it exists today is centralized,
 	# despite being distributed (they're not antonyms).
+	# 
+	# Decentralized DNS is a well-known example of Zooko's triangle,
+	# which was believed unsolvable for a long time and arguably
+	# still poorly understood.
 
 public-key-infrastructure: web-browsers dns
+	# One might argue that certificate authorities provide a degree
+	# of decentralization today, but I would say it is another
+	# example of hierarchy and delegation (cf. dns) which is really
+	# "false liquidity."
+	# 
 	# Web browsers have the most influence over the root certificates
 	# of anyone (including the user) and control HSTS[1]; therefore
 	# browsers themselves are the ultimate certificate authorities.
@@ -308,10 +317,12 @@ public-key-infrastructure: web-browsers dns
 	# and the entire process would become vastly simpler and more
 	# secure (not to mention cheaper). Basically it's a mess.
 	# 
-	# Someday I think it would be nice to have domain names point to
-	# public keys rather than directly to IPs.[TODO]
+	# In the long run, a secure DNS might be able to let us eliminate
+	# root certificates entirely, but there are some problems.[TODO]
 	# 
 	# [1] https://hstspreload.appspot.com
+	# [2] sockpuppet
+	# [3] dnscurve? dnscrypt?
 
 cloudflare: content-distribution-networks denial-of-service
 	# https://www.cloudflare.com
@@ -479,7 +490,7 @@ suborigins: web-browsers
 # webassembly?
 # no need to talk about sandboxing...
 # ...dividing software horizontally rater than vertically?
-web-browsers: browser-engines secure-sandbox
+web-browsers:
 	# Web browsers themselves have become a point of centralization.
 	# Web browsers have become too big to fail.
 	# I don't think Servo makes the problem better, and in fact
@@ -491,9 +502,8 @@ web-browsers: browser-engines secure-sandbox
 	# companies can maintain them. Innovation is stiffled because
 	# they are too monolithic and cannot possibly expose enough of
 	# their inner workers for outsiders to try out new ideas.
-	#
-	# Browser extensions have deployment problems and still aren't
-	# powerful enough.
+	# 
+	# Web developers are also limited if 
 # [TODO]
 browser-engines:
 	# Browser engines have evolved into elaborate game engines.
@@ -535,36 +545,48 @@ sql: strong-consistency content-addressing
 	# 
 	# [1] https://cassandra.apache.org/doc/cql3/CQL.html
 
-strong-consistency: zookos-triangle
+zookos-triangle: strong-consistency
+	# https://web.archive.org/web/20011020191610/http://zooko.com/distnames.html
+	# Zooko's triangle says that it's hard to have secure,
+	# human-readable names in a distributed system. Aaron Swartz
+	# told us this problem was solved by the blockchain[1], and since
+	# then it has worked in practice (cf. namecoin). 
+	# 
+	# My perspective is that this is merely one example of
+	# decentralized strong consistency, which is why it was "accidentally"
+	# solved by Bitcoin while they were trying to address the
+	# double-spend problem. Zooko's "security" requirement means that
+	# either everyone must agree that there is a single mapping for
+	# each name, possibly because there is only a single owner allowed
+	# to change it. As far as I'm aware, this is a novel result.
+	# 
+	# [1] http://www.aaronsw.com/weblog/squarezooko
+
+strong-consistency: blockchain
 	# Eventually consistent databases are easy and make applications
 	# hard; strongly consistent databases are hard and make
 	# applications easy.
 	# 
-	# Decentralized strong consistency precisely means squaring Zooko's
-	# triangle. Zooko's triangle is relevant to far more than just
-	# naming things.
-
-zookos-triangle: blockchain
-	# https://web.archive.org/web/20011020191610/http://zooko.com/distnames.html
-	# [TODO]
 	# I was very cynical about blockchains for a long time, so please
 	# don't accuse me of simply buying into the hype. The reason I've
-	# come to believe that blockchains (really, the blockchain) is
-	# revolutionary is because they are the first successful way of
-	# guaranteeing strong consistency (in the case of Bitcoin, known
-	# as the double-spend problem) with an unknown number of peers,
-	# many of which might be malicious. Other protocols like Raft
-	# and Paxos are able to guarantee strong consistency as well,
-	# but they require a known and relatively fixed number of peers
-	# in order for voting to work. This was so revolutionary it was
-	# known as "Squaring Zooko's Triangle,"[1] but the implications are
-	# much larger than DNS or human-readable names.
+	# come to believe that blockchains are revolutionary is because
+	# they are the first successful way of guaranteeing strong
+	# consistency (in the case of crypto-currencies, known as the
+	# double-spend problem) with an unknown number of peers, many of
+	# which might be malicious. Other protocols like Paxos are able to
+	# guarantee strong consistency as well, but they require a known
+	# and relatively fixed number of peers in order for voting to work.
+	# This was so revolutionary it was known as "Squaring Zooko's
+	# Triangle," (cf. zookos-triangle) but the implications are much
+	# larger than DNS or human-readable names.
 	#
 	# I prefer to to call the blockchain a "massively distributed"
 	# database. It's very different from ordinary, strongly-consistent
 	# databases like FoundationDB (RIP), CockroachDB, and VoltDB.
 	# 
-	# [1] http://www.aaronsw.com/weblog/squarezooko
+	# To be clear, the blockchain doesn't need to store much data at
+	# all. It only needs to provide _ordering_ for data stored
+	# elsewhere (such as in a content-addressing system).
 
 blockchain: ethereum namecoin
 	# The problem with using the blockchain as the basis for a strongly
