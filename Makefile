@@ -34,7 +34,7 @@
 
 ###
 
-decentralize: web other-goals
+decentralized: web other-goals
 
 web: web-apps zeronet dns public-key-infrastructure cloudflare \
      web-pages web-browsers deployment
