@@ -414,10 +414,9 @@ webtorrent: client-libraries web-browsers
 	# 
 	# WebTorrent by itself is still just a transport protocol. Building
 	# serverless apps directly on top of it requires a fair amount
-	# of additional work, at least some of what ZeroNet provides.
-	# Or it could be as easy as an automated system for sending
-	# magnet links over Matrix (or any other low-latency pub-sub
-	# protocol).
+	# of additional work (ZeroNet is one example of this). Or it could
+	# be as easy as an automated system for sending magnet links over
+	# Matrix (or any other low-latency pub-sub protocol).
 	# 
 	# [1] https://github.com/feross/webtorrent/issues/288
 
