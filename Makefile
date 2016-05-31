@@ -670,7 +670,7 @@ browser-extensions: web-browsers web-page-virtualization
 	# one might expect.
 	#   1. The landscape is in turmoil because Firefox is dropping
 	#      its extension API and switching to WebExtension (Chrome).
-	#   2. Surprisingly, it isn't possible for Chrome extensions too
+	#   2. Surprisingly, it isn't possible for Chrome extensions to
 	#      add new URI protocol support.
 	#   3. Some mobile browsers don't support extensions.
 	#   ...
