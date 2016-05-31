@@ -281,7 +281,7 @@ etherpad:
 
 ###
 
-zeronet: web-apps web-page-sandboxing deployment
+zeronet: web-apps web-page-virtualization deployment
 	# https://zeronet.io
 	# ZeroNet is best described as a framework, runtime and hosting
 	# platform for building decentralized web apps. It has several
@@ -318,11 +318,11 @@ public-key-infrastructure: web-browsers dns
 	# secure (not to mention cheaper). Basically it's a mess.
 	# 
 	# In the long run, a secure DNS might be able to let us eliminate
-	# root certificates entirely, but there are some problems.[TODO]
+	# root certificates entirely, but there are some problems.[2][3]
 	# 
 	# [1] https://hstspreload.appspot.com
-	# [2] sockpuppet
-	# [3] dnscurve? dnscrypt?
+	# [2] http://sockpuppet.org/blog/2015/01/15/against-dnssec/
+	# [3] https://dnscurve.org
 
 cloudflare: content-distribution-networks denial-of-service
 	# https://www.cloudflare.com
@@ -341,7 +341,7 @@ denial-of-service:
 
 ###
 
-web-pages: web-page-hashing web-page-sandboxing web-browsers
+web-pages: web-page-hashing web-page-virtualization web-browsers
 
 web-page-hashing: content-addressing
 	# If you're going to mirror web pages across voluntary, untrusted
@@ -384,7 +384,7 @@ content-addressing: ipfs webtorrent named-data stronglink hash-archive
 	# [1] https://bentrask.com/?q=hash://sha256/59fd0cb6d129452290291a75
 	# [2] https://bentrask.com/?q=hash://sha256/f1da36906f842142b97e745d
 
-ipfs: web-apps filesystem web-browsers web-page-sandboxing deployment
+ipfs: web-apps filesystem web-browsers web-page-virtualization deployment
 	# https://ipfs.io
 	# IPFS probably needs no introduction. It's already quite popular
 	# and still growing. It features a powerful networking layer
@@ -464,7 +464,7 @@ low-latency:
 
 ###
 
-web-page-sandboxing: web-browsers suborigins
+web-page-virtualization: web-browsers suborigins
 	# Here's a theory: every computing environment should be able
 	# to efficiently virtualize itself by running the guest system
 	# natively and trapping on "unsafe" operations. X86 has finally
@@ -487,29 +487,24 @@ suborigins: web-browsers
 	# for cases where a domain name isn't available (e.g. localhost).
 	# Suborigins let sites partition themselves arbitrarily finely.
 
-# webassembly?
-# no need to talk about sandboxing...
-# ...dividing software horizontally rater than vertically?
 web-browsers:
 	# Web browsers themselves have become a point of centralization.
 	# Web browsers have become too big to fail.
+	# 
 	# I don't think Servo makes the problem better, and in fact
 	# it might make it worse. Browsers are as complex and patched
-	# together as GPU drivers; we need a Vulkan for the web.
-	# [TODO] vulkan link?
+	# together as GPU drivers; we need a Vulkan for the web.[1]
 	#
 	# Because web browsers are so large and complex, only the largest
 	# companies can maintain them. Innovation is stiffled because
 	# they are too monolithic and cannot possibly expose enough of
 	# their inner workers for outsiders to try out new ideas.
 	# 
-	# Web developers are also limited if 
-# [TODO]
-browser-engines:
-	# Browser engines have evolved into elaborate game engines.
-
-secure-sandbox:
-	# Secure, efficient sandboxing is the cornerstone of the web.
+	# Web developers are also limited if we expect to use web
+	# technologies to fix the web itself. Don't be limited by what
+	# browser developers deign to give you. Learn C, C++, and Rust.
+	# 
+	# [1] https://www.gamedev.net/topic/666419-what-are-your-opinions-on-dx12vulkanmantle/#entry5215019
 
 ###
 
@@ -671,7 +666,7 @@ sandstorm:
 	# people aren't going to stop making web apps, so we need a
 	# way for users to self-host them.
 
-browser-extensions: web-browsers web-page-sandboxing
+browser-extensions: web-browsers web-page-virtualization
 	# Browser extensions don't seem to be the be-all solution that
 	# one might expect.
 	#   1. The landscape is in turmoil because Firefox is dropping
