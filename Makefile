@@ -179,7 +179,7 @@ google: web-pages
 	# The decentralized web will still need a great search engine,
 	# just like we're not putting the Internet Archive out of
 	# business either. That said, it's not healthy for us to be
-	# entirely dependant on handouts.
+	# entirely dependent on handouts.
 	# 
 	# Google has published some information on many of its distributed
 	# systems, including GFS[1], Spanner[2], and Chubby[3]. They can't
@@ -496,7 +496,7 @@ web-browsers:
 	# together as GPU drivers; we need a Vulkan for the web.[1]
 	#
 	# Because web browsers are so large and complex, only the largest
-	# companies can maintain them. Innovation is stiffled because
+	# companies can maintain them. Innovation is stifled because
 	# they are too monolithic and cannot possibly expose enough of
 	# their inner workers for outsiders to try out new ideas.
 	# 
@@ -586,7 +586,7 @@ strong-consistency: blockchain
 blockchain: ethereum namecoin
 	# The problem with using the blockchain as the basis for a strongly
 	# consistent, massively distributed database is that it's slow.
-	# Specifically, transactions only commit probabalistically, and
+	# Specifically, transactions only commit probabilistically, and
 	# the "settling time" is based on how long it takes messages to
 	# spread throughout the whole network. In Bitcoin, this is roughly
 	# 10-30 minutes per transaction. For logically independent
