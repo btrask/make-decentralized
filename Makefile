@@ -102,10 +102,10 @@ stack-overflow: sql filesystem
 # Even if we never make a mark on Facebook or Twitter, our efforts will
 # still be worthwhile.
 
-facebook: decentralize
+facebook: decentralized
 	# Unresolved circular dependency
 
-twitter: decentralize
+twitter: decentralized
 	# Unresolved circular dependency
 
 ###
