@@ -15,7 +15,7 @@ var str = fs.readFileSync(path, "utf8");
 var head =
 	'<!doctype html>\n'+
 	'<meta charset="utf-8">\n'+
-	'<title>make decentralize</title>\n'+
+	'<title>make decentralized</title>\n'+
 	'<style>\n'+
 	'body { background: #fff; color: #000; }\n'+
 	'pre { font-family: "Monaco", "Melno", monospace; }\n'+

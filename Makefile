@@ -1,4 +1,4 @@
-# make decentralize
+# make decentralized
 # Ben Trask <https://bentrask.com>
 # May 2016
 # License: CC0
