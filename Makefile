@@ -311,9 +311,9 @@ public-key-infrastructure: web-browsers dns
 	# Someday I think it would be nice to have domain names point to
 	# public keys rather than directly to IPs.[TODO]
 
-cloudflare: cdns denial-of-service
+cloudflare: content-distribution-networks denial-of-service
 
-cdns: content-addressing
+content-distribution-networks: content-addressing
 
 denial-of-service:
 	# Decentralization itself is probably a solution to denial-of-
@@ -379,8 +379,8 @@ ipfs: web-apps filesystem web-browsers web-page-sandboxing deployment
 	# deployment (including usability by non-technical users). IPFS's
 	# file system interface is not standard enough to support running
 	# existing apps unmodified. It has several proof-of-concept apps.[TODO]
-	# [TODO] android port? NOTE: android port means "running apps"
-	# since the cpu/bandwidth usage of a full ipfs node seems wasteful on mobile
+	# It probably needs a thin(ner) client for mobile devices with limited
+	# battery life and bandwidth caps.
 
 webtorrent: client-libraries web-browsers
 	# https://webtorrent.io
