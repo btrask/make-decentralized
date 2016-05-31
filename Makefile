@@ -21,7 +21,7 @@
 # The instructions herein may not be machine-readable. :)
 #
 # If you're interested in contributing to this document, pull requests
-# are welcome: https://github.com/btrask/make-decentralize
+# are welcome: https://github.com/btrask/make-decentralized
 # 
 # Other documents:
 # 
@@ -213,7 +213,7 @@ github: other-apps
 ###
 
 # This section is just a brief overview. There are far too many apps to
-# cover. Pull requests welcome: https://github.com/btrask/make-decentralize
+# cover. Pull requests welcome: https://github.com/btrask/make-decentralized
 
 other-apps: chat voip forums git wikis todo-lists mailing-lists etherpad
 	# There are a large number of popular, open source applications
