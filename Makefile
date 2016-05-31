@@ -35,16 +35,35 @@
 
 decentralize: web other-goals
 
-web: web-apps zeronet dns public-key-infrastructure \
+web: web-apps zeronet dns public-key-infrastructure cloudflare \
      web-pages web-browsers deployment
 
 ###
 
 web-apps: porting-effort facebook twitter \
-          wordpress wayback-machine google github \
-          other-apps
-	# In my opinion, we should focus on porting existing applications.
-	# [TODO]
+           wordpress wayback-machine google github \
+           other-apps
+	# So far, a lot of the effort on decentralizing the web has focused
+	# on writing new applications from scratch. Greenfield projects are
+	# fun and exciting, but it's hard to build a new ecosystem from
+	# scratch. Our primary interest is in decentralization, not in any
+	# particular application domain, so the apps we write are bound to
+	# be worse than apps by people who are focused on their one domain
+	# above all else. Many applications are so large and established that
+	# trying to compete with them would be suicide even if we weren't
+	# doing it on a new and unproven platform. It can be difficult to
+	# tell what the requirements of the applications are and whether the
+	# platform is meeting them when both are in flux (and that's why
+	# many decentralized platforms are failing to meet application
+	# requirements like strong-consistency or low-latency). When you
+	# couple several unproven ideas together, the risk grows
+	# exponentially.
+	# 
+	# This is why I believe porting existing applications, starting from
+	# simple open source projects and gradually building steam, is so
+	# important. My vision of our success is a web that sucks just as
+	# much as the web we have today, except in one way: that it's no
+	# longer centralized. Then we can start working on the other problems.
 
 porting-effort: stack-overflow deployment
 	# Porting large, often "legacy" software projects isn't sexy.
@@ -79,7 +98,7 @@ stack-overflow: sql filesystem
 # These goals are too ambitious to be worth thinking about for the
 # time being. We can tackle them once we do everything else.
 # 
-# Even if we never get around to Facebook and Twitter, our efforts will
+# Even if we never make a mark on Facebook or Twitter, our efforts will
 # still be worthwhile.
 
 facebook: decentralize
@@ -113,6 +132,8 @@ wordpress: mysql web-pages
 	# If we want to port WordPress to a decentralized datastore,
 	# perhaps we could get some support by starting with porting it
 	# to PostgreSQL, adding a proper database abstraction layer.
+	# This is plausible because there is already pent-up demand for
+	# Postgres support. Plug-ins might be an issue.
 
 wayback-machine: web-pages web-page-hashing
 	# https://web.archive.org
@@ -134,8 +155,8 @@ wayback-machine: web-pages web-page-hashing
 	# The only other solution I'm aware of is what I call "trustless
 	# decentralized archiving," where you just try to ensure that
 	# other people can reproduce a given page archive by stripping
-	# all of the irreproducible parts of it (perhaps by making
-	# multiple requests and computing an "average"), and then allowing
+	# all of the irreproducible parts of it (perhaps by loading a page
+	# several times and computing an "average"), and then allowing
 	# various parties to cryptographically sign the result. Such a
 	# system requires a large number of users to get any reasonable
 	# corroboration.
@@ -143,10 +164,10 @@ wayback-machine: web-pages web-page-hashing
 google: web-pages
 	# https://www.google.com
 	# In order to index data, you need to access it. That means that
-	# storing data and providing a search engine are intrinsically
-	# tied together. That means that if we can decentralize static
-	# webpage hosting, then decentralized search is relatively easy.
-	# No crawling necessary.
+	# storing data and searching it are intrinsically linked (no pun
+	# intended). That means that if we can decentralize static webpage
+	# hosting, then decentralized search is relatively easy. No
+	# crawling necessary.
 	# 
 	# I believe that keeping Google in our corner is an important
 	# long-term strategy. That means not trying to kill them (are
@@ -157,10 +178,10 @@ google: web-pages
 	# business either. That said, it's not healthy for us to be
 	# entirely dependant on handouts.
 	# 
-	# It's also worth remembering that Google already has literally
-	# almost all of the technology we're talking about to decentralize
-	# the web, albeit on a company-wide rather than global scale.
-	# They are a model to learn from.
+	# Google has published some information on many of its distributed
+	# systems, including GFS, Spanner, and Chubby[TODO]. They can't be copied
+	# directly, due to differences between intranet and internet
+	# services, but they are still worth studying.
 
 github: other-apps
 	# https://github.com
@@ -171,17 +192,12 @@ github: other-apps
 	# 
 	# Past attempts to decentralize GitHub, such as GitTorrent[TODO],
 	# have missed the mark. The social aspect seems to be what matters.
+	# GitLab[TODO] seems promising.
 	# 
-	# Like Google, GitHub has been very good to the open source
-	# community, and we should be thankful. Unlike Google, we can
-	# probably afford to piss them off, and the sooner we do, the
-	# less messy the breakup will be (since their dependency is
-	# constantly growing into our tools and platforms). Sorry GitHub.
-	# 
-	# That said, GitHub is a fairly advanced application, and the
-	# open source equivalents are relatively unproven. We should
-	# focus on popular open source applications with fewer network
-	# effects first, before trying something this ambitious.
+	# GitHub is a fairly advanced application, and the open source
+	# equivalents are relatively unproven. We should focus on popular
+	# open source applications with fewer network effects first,
+	# before trying something this ambitious.
 
 ###
 
@@ -192,8 +208,8 @@ other-apps: chat voip forums git wikis todo-lists mailing-lists etherpad
 	# There are a large number of popular, open source applications
 	# that are more practical to port than rewrite from scratch.
 	# These should be easier initial targets than the really ambitious
-	# goals like Facebook or Twitter. The idea is to start small,
-	# prove the technologies, and build steam.
+	# goals like Facebook, Twitter, or even GitHub. The idea is to
+	# start small, prove the technologies, and build steam.
 
 chat: slack low-latency
 
@@ -266,21 +282,23 @@ zeronet: web-apps web-page-sandboxing deployment
 	# 
 	# [1] https://github.com/HelloZeroNet/ZeroNet/issues/157
 
-dns: namecoin strong-consistency web-pages
+dns: zookos-triangle
 	# To be clear, hierarchy and delegation are not the same as
-	# decentralization.
-	# 
-	# Decentralizing DNS means "squaring Zooko's triangle."[TODO]
-	# In other words it require strong consistency.
-	# A decentralized domain name system called Namecoin already
-	# exists, and is heavily used in ZeroNet. I don't know of
-	# any serious problems with it, aside from the fact that
+	# decentralization. DNS as it exists today is centralized,
+	# despite being distributed (they're not antonyms).
+
+zookos-triangle: strong-consistency namecoin
+	# http:// [TODO]
+	# Zooko's Triangle just means decentralized strong consistency,
+	# and that's what Bitcoin gave us.
+
+namecoin: web-pages deployment
+	# https:// [TODO]
+	# Namecoin is here today and is heavily used by ZeroNet. I don't
+	# know of any serious problems with it, aside from the fact that
 	# it isn't very poplar. By itself it doesn't have any driving
 	# use cases, but in conjunction with a decentralized web
 	# platform it could provide a lot of value.
-
-namecoin:
-	# https:// [TODO]
 
 public-key-infrastructure: web-browsers dns
 	# Web browsers have the most influence over the root certificates
@@ -292,6 +310,20 @@ public-key-infrastructure: web-browsers dns
 	# 
 	# Someday I think it would be nice to have domain names point to
 	# public keys rather than directly to IPs.[TODO]
+
+cloudflare: cdns denial-of-service
+
+cdns: content-addressing
+
+denial-of-service:
+	# Decentralization itself is probably a solution to denial-of-
+	# service attacks. It does several things:
+	#   1. Makes it easier for the internet to "route around" damage.
+	#   2. Makes attacking someone for hosting something less
+	#      socially acceptable, because now instead of attacking the
+	#      author, you're attacking random people.
+	#   3. Makes it easier to keep, use, and even share your own
+	#      copies offline, protecting them from attacks.
 
 ###
 
@@ -333,7 +365,7 @@ content-addressing: ipfs webtorrent named-data stronglink hash-archive
 	# content addressing, you must be very careful what content is
 	# used, since that defines the item's identity. Several systems
 	# inject their own meta-data into their hashes, making them
-	# mutually incompatible, unfortunately.
+	# mutually incompatible, unfortunately.[TODO]
 
 ipfs: web-apps filesystem web-browsers web-page-sandboxing deployment
 	# https://ipfs.io
@@ -364,6 +396,9 @@ webtorrent: client-libraries web-browsers
 	# WebTorrent by itself is still just a transport protocol. Building
 	# serverless apps directly on top of it requires a fair amount
 	# of additional work, at least some of what ZeroNet provides.
+	# Or it could be as easy as an automated system for sending
+	# magnet links over Matrix (or any other low-latency pub-sub
+	# protocol).
 
 named-data:
 	# http: [TODO]
@@ -625,14 +660,25 @@ anonymity:
 	# A police state is powered by criminals.
 
 email: spam-prevention
-	# Email was designed to be federated, [TODO]
+	# Email was designed to be federated, but a large amount of its
+	# flexibility has been lost over time, mainly in the war against
+	# spam.
+	# 
+	# I think protocols need to use store-and-forward delivery in
+	# order to let users receive messages directly to their mobile
+	# devices.
+	# 
+	# Latency is another big reason why email isn't suitable for
+	# building other systems on top of (cf. low-latency).
+	# 
+	# End-to-end encryption is also a problem.
 
 spam-prevention:
 	# In my opinion, the reason spam is so difficult to prevent is
 	# because the incentive to spam a network is the same incentive
 	# to use it. In other words, if the ROI is positive, you will
-	# attract users and spammers alike. It's very difficult for a
-	# system to get popular in the first place without being
+	# attract users and spammers alike. That means it's very difficult
+	# for a system to get popular in the first place without being
 	# vulnerable to spam. For example, lots of people were attracted
 	# to Twitter by the idea of "building a brand" and attracting
 	# a huge following.
