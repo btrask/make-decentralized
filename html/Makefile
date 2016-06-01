@@ -3,8 +3,11 @@
 .PHONY: all
 all: index.html
 
-index.html: ./head.html ../Makefile generate-html.js
-	cat ./head.html > $@
-	./generate-html.js ../Makefile >> $@
+.PHONY: clean
+clean:
+	@- rm ./index.html
+
+./index.html: ./head.html ../Makefile generate-html.js
+	./generate-html.js ./head.html ../Makefile > $@
 
 
