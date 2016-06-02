@@ -167,14 +167,6 @@ google: web-pages
 	# hosting, then decentralized search is relatively easy. No crawling
 	# necessary.
 	# 
-	# I believe that keeping Google in our corner is an important long-
-	# term strategy. That means not trying to kill them (are you feeling
-	# lucky?) and using the carrot more than the stick. Note how Mozilla
-	# has faired after trying their luck with Yahoo. The decentralized web
-	# will still need a great search engine, just like we're not putting
-	# the Internet Archive out of business either. That said, it's not
-	# healthy for us to be entirely dependent on handouts.
-	# 
 	# Google has published some information on many of its distributed
 	# systems, including GFS[1], Spanner[2], and Chubby[3]. They can't be
 	# copied directly, due to differences between intranet and internet
@@ -191,18 +183,17 @@ github: other-apps
 	# social network. This should be a lesson of caution to any eager
 	# would-be decentralizers.
 	# 
-	# Past attempts to decentralize GitHub, such as GitTorrent[1][2], seem
+	# Past attempts to decentralize GitHub, such as GitTorrent[1], seem
 	# have missed the mark. The social aspect seems to be what matters.
-	# GitLab[3] seems promising.
+	# GitLab[2] seems promising.
 	# 
 	# GitHub is a fairly advanced application, and the open source
-	# equivalents are relatively unproven. We should focus on popular open
-	# source applications with fewer network effects first, before trying
-	# something this ambitious.
+	# equivalents are relatively unproven. We should focus on more popular
+	# open source applications with fewer network effects first, before
+	# trying something this ambitious.
 	# 
 	# [1] https://github.com/cjb/GitTorrent
-	# [2] https://github.com/cjb/GitTorrent/issues/75
-	# [3] https://about.gitlab.com/contributing/
+	# [2] https://about.gitlab.com/contributing/
 
 ###
 
