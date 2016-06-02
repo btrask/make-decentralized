@@ -1,7 +1,7 @@
 # make decentralized
 # https://github.com/btrask/make-decentralized
 # Ben Trask <https://bentrask.com>
-# May 2016
+# June 2016
 # License: CC0
 # 
 # Like every Makefile, this document forms a dependency graph. Unlike an
