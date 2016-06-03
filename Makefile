@@ -668,9 +668,10 @@ anonymity:
 	# - Child pornography
 	# - Bomb threats
 	# Realistically, we can't get our rights back unless we come up with an
-	# alternate way of tackling these problems.
+	# alternate way of tackling these problems. A police state is powered
+	# by criminals.
 	# 
-	# A police state is powered by criminals.
+	# Note: I'm only trying to push my _strategy_, not my _politics_.
 
 email: spam-prevention
 	# Email was designed to be federated, but a large amount of its
