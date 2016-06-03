@@ -301,11 +301,10 @@ public-key-infrastructure: web-browsers dns
 	# mention cheaper). Basically it's a mess.
 	# 
 	# In the long run, a secure DNS might be able to let us eliminate root
-	# certificates entirely, but there are some problems.[2][3]
+	# certificates entirely (but DNSSec isn't it[2]; cf. dns).
 	# 
 	# [1] https://hstspreload.appspot.com
 	# [2] http://sockpuppet.org/blog/2015/01/15/against-dnssec/
-	# [3] https://dnscurve.org
 
 cloudflare: content-distribution-networks denial-of-service
 	# https://www.cloudflare.com
