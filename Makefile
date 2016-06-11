@@ -588,7 +588,7 @@ namecoin:
 	# https://www.namecoin.info/
 	# Namecoin is here today and is heavily used by ZeroNet. I don't know
 	# of any serious problems with it, aside from the fact that it isn't
-	# very poplar. By itself it doesn't have any driving use cases, but in
+	# very popular. By itself it doesn't have any driving use cases, but in
 	# conjunction with a decentralized web platform it could provide a lot
 	# of value.
 
